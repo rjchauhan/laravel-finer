@@ -9,7 +9,7 @@ This package introduces set of multi-purpose helper classes that provides a new 
 
 ## Installation
 
-Via Composer
+You can install the package via composer:
 
 ``` bash
 $ composer require rjchauhan/laravel-finer
@@ -70,16 +70,16 @@ Please see [contributing.md](contributing.md) for details and a todolist.
 
 ## Security
 
-If you discover any security related issues, please email author email instead of using the issue tracker.
+If you discover any security related issues, please email [Raviraj Chauhan](rjchauhan8427@gmail.com) instead of using the issue tracker.
 
 ## Credits
 
-- [Raviraj Chauhan][link-author]
-- [All Contributors][link-contributors]
+- [Raviraj Chauhan](https://github.com/rjchauhan)
+- [All Contributors](../../contributors)
 
 ## License
 
-license. Please see the [license file](license.md) for more information.
+The MIT License (MIT). Please see [License File](license.md) for more information.
 
 [ico-version]: https://img.shields.io/packagist/v/rjchauhan/laravel-finer.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/rjchauhan/laravel-finer.svg?style=flat-square

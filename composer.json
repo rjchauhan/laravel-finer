@@ -1,0 +1,43 @@
+{
+    "name": "rjchauhan/laravel-finer",
+    "description": "Laravel multi-purpose helpers",
+    "license": "license",
+    "authors": [
+        {
+            "name": "Raviraj Chauhan",
+            "email": "rjchauhan8427@gmail.com",
+            "homepage": "https://rjchauhan.com"
+        }
+    ],
+    "homepage": "https://github.com/rjchauhan/laravel-finer",
+    "keywords": ["Laravel", "Laravel Finer"],
+    "require": {
+        "illuminate/support": "~5|~6|~7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "~3|~4",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rjchauhan\\LaravelFiner\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rjchauhan\\LaravelFiner\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rjchauhan\\LaravelFiner\\LaravelFinerServiceProvider"
+            ],
+            "aliases": {
+                "LaravelFiner": "Rjchauhan\\LaravelFiner\\Facades\\LaravelFiner"
+            }
+        }
+    }
+}

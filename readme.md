@@ -1,9 +1,7 @@
 # Laravel Finer
 
-[![Latest Version on Packagist][ico-version]][link-packagist]
-[![Total Downloads][ico-downloads]][link-downloads]
-[![Build Status][ico-travis]][link-travis]
-[![StyleCI][ico-styleci]][link-styleci]
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/rjchauhan/laravel-finer.svg?style=flat-square)](https://packagist.org/packages/rjchauhan/laravel-finer)
+[![Total Downloads](https://img.shields.io/packagist/dt/rjchauhan/laravel-finer.svg?style=flat-square)](https://packagist.org/packages/rjchauhan/laravel-finer)
 
 This package introduces set of multi-purpose helper classes that provides a new way of organising the logic of your Laravel applications.
 

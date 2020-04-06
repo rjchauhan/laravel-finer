@@ -13,8 +13,8 @@ class LaravelFinerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'rjchauhan');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'rjchauhan');
+        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'laravel-finer');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-finer');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
@@ -62,18 +62,18 @@ class LaravelFinerServiceProvider extends ServiceProvider
         ], 'laravel-finer.config');
 
         // Publishing the views.
-        /*$this->publishes([
-            __DIR__.'/../resources/views' => base_path('resources/views/vendor/rjchauhan'),
-        ], 'laravel-finer.views');*/
+        $this->publishes([
+            __DIR__.'/../resources/views' => base_path('resources/views/vendor/laravel-finer'),
+        ]);
 
         // Publishing assets.
         /*$this->publishes([
-            __DIR__.'/../resources/assets' => public_path('vendor/rjchauhan'),
+            __DIR__.'/../resources/assets' => public_path('vendor/laravel-finer'),
         ], 'laravel-finer.views');*/
 
         // Publishing the translation files.
         /*$this->publishes([
-            __DIR__.'/../resources/lang' => resource_path('lang/vendor/rjchauhan'),
+            __DIR__.'/../resources/lang' => resource_path('lang/vendor/laravel-finer'),
         ], 'laravel-finer.views');*/
 
         // Registering package commands.

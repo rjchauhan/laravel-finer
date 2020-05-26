@@ -18,7 +18,7 @@ abstract class Activity extends SpatieActivity implements SpatieActivityContract
     public function getDisplayTimeAttribute()
     {
         if ($this->created_at->lt(Carbon::now()->subHour())) {
-            return $this->created_at;
+            return $this->created_at->toDateTimeString();
         }
 
         return $this->created_at->diffForHumans();
@@ -34,7 +34,7 @@ abstract class Activity extends SpatieActivity implements SpatieActivityContract
                 'causer'     => $this->causer,
                 'activity'   => $this,
                 'properties' => $this->properties,
-            ]);
+            ])->render();
         }
 
         return str_beautify($this->description);

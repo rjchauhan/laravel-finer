@@ -4,7 +4,7 @@ namespace Rjchauhan\LaravelFiner\Filter;
 
 use Illuminate\Http\Request;
 
-abstract class Filter
+abstract class Filter implements FilterContract
 {
     /**
      * @var Request

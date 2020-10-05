@@ -2,40 +2,35 @@
 
 namespace Rjchauhan\LaravelFiner\Pdf;
 
-use Dompdf\Dompdf;
 use Illuminate\Support\Str;
-use Symfony\Component\HttpFoundation\Response;
 
-abstract class Pdf
+abstract class Pdf implements PdfContract
 {
     protected $view;
 
+    /** @var array */
+    protected $options = [];
+
+    /** @return array */
     public abstract function data();
 
     public function download()
     {
-        $dompdf = new Dompdf;
-
-        $dompdf->loadHtml($this->pdf()->render());
-
-        $dompdf->render();
-
-        return new Response($dompdf->output(), 200, [
-            'Content-Description'       => 'File Transfer',
-            'Content-Disposition'       => 'attachment; filename="' . $this->filename() . '"',
-            'Content-Transfer-Encoding' => 'binary',
-            'Content-Type'              => 'application/pdf',
-        ]);
+        return $this->pdf()->download($this->filename());
     }
 
     public function render()
     {
-        return $this->pdf();
+        return $this->pdf()->stream();
     }
 
     public function pdf()
     {
-        return view($this->view(), $this->data());
+        // merging customized options with default options.
+        $options = array_merge(config('dompdf.defines'), $this->options);
+
+        return \PDF::loadView($this->view(), $this->data())
+            ->setOptions($options);
     }
 
     public function view()
@@ -52,11 +47,9 @@ abstract class Pdf
 
     public function viewName()
     {
-        if (isset($this->view)) {
-            return $this->view;
-        }
-
-        return Str::kebab(class_basename($this));
+        return isset($this->view)
+            ? $this->view
+            : Str::kebab(class_basename($this));
     }
 
     public function filename()

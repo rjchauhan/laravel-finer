@@ -26,6 +26,11 @@ abstract class Filter implements FilterContract
     protected $filters = [];
 
     /**
+     * Custom filter key value pairs
+     */
+    protected $values = [];
+
+    /**
      * Create a new ThreadFilters instance.
      *
      * @param Request $request
@@ -33,6 +38,16 @@ abstract class Filter implements FilterContract
     public function __construct(Request $request)
     {
         $this->request = $request;
+    }
+
+    /**
+     * Set custom filter key value pairs
+     */
+    public function values(array $values = [])
+    {
+        $this->values = $values;
+
+        return $this;
     }
 
     /**
@@ -61,6 +76,10 @@ abstract class Filter implements FilterContract
      */
     private function getFilters()
     {
+        if (count($this->values)) {
+            return array_filter(array_only($this->values, $this->filters));
+        }
+
         return array_filter($this->request->only($this->filters));
     }
 }

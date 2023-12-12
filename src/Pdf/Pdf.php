@@ -27,10 +27,10 @@ abstract class Pdf implements PdfContract
     public function pdf()
     {
         // merging customized options with default options.
-        $options = array_merge(config('dompdf.defines'), $this->options);
+        $options = array_merge(config('dompdf.defines', []), $this->options);
 
         return \PDF::loadView($this->view(), $this->data())
-            ->setOptions($options);
+            ->setOption($options);
     }
 
     public function view()
@@ -47,9 +47,7 @@ abstract class Pdf implements PdfContract
 
     public function viewName()
     {
-        return isset($this->view)
-            ? $this->view
-            : Str::kebab(class_basename($this));
+        return $this->view ?? Str::kebab(class_basename($this));
     }
 
     public function filename()

@@ -3,8 +3,8 @@
 namespace Rjchauhan\LaravelFiner\ActivityLog;
 
 use Carbon\Carbon;
-use Spatie\Activitylog\Models\Activity as SpatieActivity;
 use Spatie\Activitylog\Contracts\Activity as SpatieActivityContract;
+use Spatie\Activitylog\Models\Activity as SpatieActivity;
 
 abstract class Activity extends SpatieActivity implements SpatieActivityContract
 {
@@ -30,9 +30,9 @@ abstract class Activity extends SpatieActivity implements SpatieActivityContract
             $this->load('subject', 'causer');
 
             return view($view, [
-                'subject'    => $this->subject,
-                'causer'     => $this->causer,
-                'activity'   => $this,
+                'subject' => $this->subject,
+                'causer' => $this->causer,
+                'activity' => $this,
                 'properties' => $this->properties,
             ])->render();
         }
@@ -42,6 +42,6 @@ abstract class Activity extends SpatieActivity implements SpatieActivityContract
 
     private function getView()
     {
-        return config('laravel-finer.activity-logger.views') . '.' . $this->description;
+        return config('laravel-finer.activity-logger.views').'.'.$this->description;
     }
 }

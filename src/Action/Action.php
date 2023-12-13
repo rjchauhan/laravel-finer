@@ -20,10 +20,9 @@ abstract class Action implements ActionContract
     /**
      * Action constructor.
      *
-     * @param Model $model
-     * @param User|Authenticatable $performer
+     * @param  User|Authenticatable  $performer
      */
-    public function __construct(Model $model, User $performer = null)
+    public function __construct(Model $model, ?User $performer = null)
     {
         $this->model = $model;
         $this->performer = $performer ?: auth()->user();
@@ -83,8 +82,7 @@ abstract class Action implements ActionContract
     /**
      * Get specific property.
      *
-     * @param $key
-     * @param null $default
+     * @param  null  $default
      * @return mixed
      */
     public function getProperty($key, $default = null)
@@ -105,8 +103,6 @@ abstract class Action implements ActionContract
     /**
      * Set specific property.
      *
-     * @param $key
-     * @param $value
      * @return $this
      */
     public function setProperty($key, $value)
@@ -119,7 +115,6 @@ abstract class Action implements ActionContract
     /**
      * Set extra properties.
      *
-     * @param array $properties
      * @return $this
      */
     public function setProperties(array $properties)

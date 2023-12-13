@@ -21,8 +21,7 @@ interface ActionContract
     /**
      * Get specific property.
      *
-     * @param $key
-     * @param null $default
+     * @param  null  $default
      * @return mixed
      */
     public function getProperty($key, $default = null);
@@ -37,8 +36,6 @@ interface ActionContract
     /**
      * Set specific property.
      *
-     * @param $key
-     * @param $value
      * @return $this
      */
     public function setProperty($key, $value);
@@ -46,7 +43,6 @@ interface ActionContract
     /**
      * Set extra properties.
      *
-     * @param array $properties
      * @return $this
      */
     public function setProperties(array $properties);

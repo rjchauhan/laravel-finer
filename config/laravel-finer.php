@@ -23,7 +23,6 @@ return [
 
     ],
 
-
     /*
      |--------------------------------------------------------------------------
      | Pdf configurations
@@ -34,7 +33,7 @@ return [
         /*
          * Directory used to store pdf view files.
          */
-        'views' => 'pdf'
+        'views' => 'pdf',
 
     ],
 

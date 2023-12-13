@@ -32,8 +32,6 @@ abstract class Filter implements FilterContract
 
     /**
      * Create a new ThreadFilters instance.
-     *
-     * @param Request $request
      */
     public function __construct(Request $request)
     {
@@ -53,7 +51,7 @@ abstract class Filter implements FilterContract
     /**
      * Apply the filters.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
+     * @param  \Illuminate\Database\Eloquent\Builder  $builder
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function apply($builder)

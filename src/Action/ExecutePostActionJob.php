@@ -17,8 +17,6 @@ class ExecutePostActionJob implements ShouldQueue
 
     /**
      * Create a new job instance.
-     *
-     * @param ActionContract $action
      */
     public function __construct(ActionContract $action)
     {

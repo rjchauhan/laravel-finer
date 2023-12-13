@@ -12,7 +12,7 @@ abstract class Pdf implements PdfContract
     protected $options = [];
 
     /** @return array */
-    public abstract function data();
+    abstract public function data();
 
     public function download()
     {
@@ -27,15 +27,15 @@ abstract class Pdf implements PdfContract
     public function pdf()
     {
         // merging customized options with default options.
-        $options = array_merge(config('dompdf.defines', []), $this->options);
+        $options = array_merge(config('dompdf.options', []), $this->options);
 
         return \PDF::loadView($this->view(), $this->data())
-            ->setOption($options);
+            ->setOptions($options);
     }
 
     public function view()
     {
-        return config('laravel-finer.pdf.views') . '.' . $this->viewName();
+        return config('laravel-finer.pdf.views').'.'.$this->viewName();
     }
 
     public function locale($locale)
@@ -52,7 +52,7 @@ abstract class Pdf implements PdfContract
 
     public function filename()
     {
-        return str_replace('_', ' ', Str::title(Str::snake(class_basename($this)))) . '.pdf';
+        return str_replace('_', ' ', Str::title(Str::snake(class_basename($this)))).'.pdf';
     }
 
     public static function __callStatic($method, $parameters)

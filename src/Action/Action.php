@@ -2,7 +2,7 @@
 
 namespace Rjchauhan\LaravelFiner\Action;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 
